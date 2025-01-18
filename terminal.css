@@ -67,13 +67,6 @@ h5,
 h6 {
 	font-size: calc(var(--font-size) * 1.1);
 	letter-spacing: 0.04em;
-	display: flex;
-}
-.left-text {
-	text-align: left;
-}
-.right-text {
-	text-align: right;
 }
 
 h1,
