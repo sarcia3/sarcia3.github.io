@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/terminal.css">
+    <link rel="shortcut icon" href="/favicon.png">
+    <title>2026-01-23-a-galois-theory-problem</title>
+    
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body>
+    <h1><a href="/" style="color: inherit">Sarcia3's math and computer science ramblings</a></h1>
+    <p>A place for my thoughts <a href="/posts.html">(the list)</a>.</p>
+    <hr style="margin-bottom: 0;"> 
+
+    <h2>2026-01-23-a-galois-theory-problem</h2>
+<h3 id="introduction">Introduction</h3>
+<p>As the exam season approaches there is an intense test season preceding it<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>. One of those tests that I had to take was the one from the Algebra course, which had the following as the problem number three:</p>
+<blockquote>
+  <p>Prove that the splitting field L of $X^3+tX-1$ over $\mathbb Q(t)$<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup> is a Galois extension and that $\mathrm{Gal}(L/Q(t)) \simeq S_3$.</p>
+</blockquote>
+
+<h3 id="the-setting">The setting</h3>
+<p>This is a fairly standard problem: proving that this indeed is an Galois extension is just noting that $0=\mathrm{char}\ \mathbb Q=\mathrm{char}\ \mathbb Q(t)$. Showing that the Galois group is isomorphic to $S_3$ is a bit more complicated. As the polynomial is of degree $3$, we can notice that it suffices to show that</p>
+
+\[|\mathrm{Gal}(L/\mathbb Q(t))|=3!.\]
+
+<p>Most of the solutions I saw comprised of two steps:</p>
+<ol type="a">
+  <li>Proving that $3\mid [L:\mathbb Q(t)]$ (useful because $[L\colon \mathbb Q(t)]=|\mathrm{Gal}(L/\mathbb Q(t))|$). For example by noticing that $X^3+tX-1$ is irreducible. </li>
+  <li>
+    <p>Proving that $2\mid |\mathrm{Gal}(L/\mathbb Q(t))|$. For example by stating the group explicitly or noticing that the discriminant of the polynomial is not a square<sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup>.</p>
+  </li>
+</ol>
+
+<p>In this blog post I will show an interesting way to prove the latter.</p>
+
+<h3 id="the-fun-part">The fun part</h3>
+
+<p>Let us remind ourselves of the construction of $\mathbb Q(t)$:</p>
+
+\[\mathbb Q(t)=\left\{\frac{P(t)}{Q(t)} \mid P, Q \in \mathbb Q[t]\right\}.\]
+
+<p>We can notice from the construction that this object would be algebraically the same if in the place of the formal variable $t$ we put any transcendental number $\alpha$.</p>
+
+<p>With that isomorphism we can assume $t$ to be some transcendental number $\alpha$ and thus $\mathbb Q(t) \subseteq \mathbb R$. For some $\alpha$s our original polynomial has only one real solution — this happens for example when the derivative is never zero. Let’s try to find such $\alpha$.</p>
+
+\[\begin{align*}
+    (X^3+\alpha X-1)' &amp;= 0 \iff\\
+    3X^2+\alpha &amp;= 0 \iff\\
+    X &amp;= \pm i\sqrt{\alpha/3}.
+\end{align*}\]
+
+<p>So for <strong>any</strong> transcendental $\alpha &gt; 0$ (like $e$) our polynomial’s derivative is never $0$ over the reals, so it cannot have more than one real solution.</p>
+
+<p>This in turn means that $\mathbb R \subset L \subset \mathbb C$. And we know that $\overline{(\cdot)}= (z \mapsto \overline z)$ is an $\mathbb R$-automorphism of $\mathbb C$ with the order $2$, and in particular it is an $\mathbb R$-automorphism of $L$ of the order two.</p>
+
+<p>This means that for $\alpha &gt; 0$, we get $2\mid |\mathrm{Gal}(L/\mathbb Q(\alpha))|$ as desired.</p>
+
+<h2 id="footnotes">Footnotes:</h2>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p>math courses at polish universities are usually divided into two parts — the lecture and the practicals. The lecture is theory and the practicals are problem-solving. Before being allowed to attempt the oral theory exam one must usually pass the practicals first, and to pass them, you have to write a test. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>by $\mathbb Q(t)$ we mean the field of rational functions over $\mathbb Q$. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>a well known lemma states that if $L$ is the splitting field of the polynomial $P$ of degree $n$ over $F$, then $\mathrm{Gal}(L/F) \subseteq A_n \iff $ the discriminant of $P$ is a square in $F$. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+    <footer style="border-top: 2px solid var(--accent); margin-top: 0px; padding:10px">
+      Created by <a href="https://github.com/sarcia3" target="_blank">Sara Bartman</a>. 
+      Theme based on <a href="https://catppuccin.com/" target="_blank">Catpuccin</a> made by 
+      <a href="https://github.com/panr/terminal-css/tree/master" target="_blank">terminal-css</a>. 
+    </footer>
+  </body>
+</html>
