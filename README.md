@@ -2,4 +2,4 @@
 ### Repo for my personal website
 This website's CSS is created using the tool
 [terminal-css](https://github.com/panr/terminal-css/tree/master)
-with the amazing [catpuccin](https://catppuccin.com/) colour palette.
+with the amazing [catppuccin](https://catppuccin.com/) colour palette.
